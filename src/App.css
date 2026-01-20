@@ -1,0 +1,238 @@
+.App {
+  width: 100%;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.App.dark {
+  background-color: #252525;
+  color: #f7f7f7;
+}
+.App.dark .container h1 {
+  color: #f7f7f7;
+}
+.App.dark .container .formBtns form input {
+  color: #666666;
+  border: 1px solid #f7f7f7;
+}
+.App.dark .container .formBtns form svg {
+  color: #f7f7f7;
+}
+.App.dark .container ol .row .box li {
+  color: #f7f7f7;
+}
+.App.dark .modal {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.App.dark .modal .modal-wrap {
+  background-color: #252525;
+  border: 1px solid white;
+}
+.App.dark .modal .modal-wrap h3 {
+  color: #f7f7f7;
+}
+.App.dark .modal .modal-wrap input {
+  border: 1px solid #f7f7f7;
+  color: #666666;
+}
+
+.container h1 {
+  font-weight: 500;
+  font-size: 26px;
+  color: #252525;
+  margin-bottom: 20px;
+  padding-top: 30px;
+}
+.container .formBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.container .formBtns form {
+  width: 73%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.container .formBtns form input {
+  width: 100%;
+  border: 1px solid #6c63ff;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 8px 20px;
+  padding-right: 45px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+.container .formBtns form svg {
+  color: #6c63ff;
+  font-size: 22px;
+  position: absolute;
+  right: 15px;
+  cursor: pointer;
+}
+.container .formBtns select {
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+  background-color: #6c63ff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.container .formBtns select option {
+  background-color: #f7f7f7;
+  color: #6c63ff;
+  border-radius: 5px;
+}
+.container .formBtns button {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6c63ff;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.container .formBtns button svg {
+  color: white;
+  font-size: 22px;
+}
+
+.container ol {
+  width: 520px;
+  height: 60vh;
+  margin: 0 auto;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.container ol .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #6c63ff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.container ol .row .box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.done {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.container ol .row .box li {
+  font-weight: 500;
+  font-size: 20px;
+  color: #252525;
+}
+.container ol .row .btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.container ol .row .btns svg {
+  color: #cdcdcd;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.container ol .row .btns .edit:hover {
+  color: #6c63ff;
+}
+.container ol .row .btns .del:hover {
+  color: rgba(255, 0, 0, 0.76);
+}
+
+.container .add {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #6c63ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+.container .add svg {
+  color: white;
+  font-size: 24px;
+}
+
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+.modal .modal-wrap {
+  width: 500px;
+  background-color: #f7f7f7;
+  margin: 0 auto;
+  border-radius: 16px;
+  padding: 10px 20px;
+  margin-top: 100px;
+}
+.modal .modal-wrap h3 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #252525;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.modal .modal-wrap input {
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 0.568);
+  padding: 8px 15px;
+  border: 1px solid #6c63ff;
+  background-color: transparent;
+  border-radius: 5px;
+  margin-bottom: 100px;
+  outline: none;
+}
+.modal .modal-wrap .btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal .modal-wrap .btns button {
+  font-weight: 500;
+  font-size: 18px;
+  text-transform: uppercase;
+  border: 1px solid #6c63ff;
+  border-radius: 5px;
+  padding: 5px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.modal .modal-wrap .btns .censel {
+  color: #6c63ff;
+  background-color: transparent;
+}
+.modal .modal-wrap .btns .censel:hover {
+  background-color: rgba(255, 0, 0, 0.795);
+  border: 1px solid rgba(255, 0, 0, 0.795);
+  color: white;
+}
+.modal .modal-wrap .btns .apply {
+  color: white;
+  background-color: #6c63ff;
+}
