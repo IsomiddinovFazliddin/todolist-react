@@ -30,10 +30,8 @@ function App() {
       isDone: true,
     },
   ]);
-  const [inputTitle, setInputTitle] = useState();
-  const [modalInput, setModalInput] = useState();
 
-  const [search, setSearch] = useState();
+  const [modalInput, setModalInput] = useState("");
 
   const del = (id) => {
     setData(data.filter((item) => item.id !== id));
@@ -56,6 +54,7 @@ function App() {
                   title: modalInput,
                   isDone: false,
                 };
+
                 if (modalInput.trim().length !== 0) {
                   setData([...data, obj]);
                 }
@@ -114,20 +113,9 @@ function App() {
             action=""
             onSubmit={(e) => {
               e.preventDefault();
-
-              const filterData = data.filter((item) => {
-                item.title.toLowerCase().includes(search.toLowerCase());
-              });
             }}
           >
-            <input
-              value={inputTitle}
-              type="text"
-              placeholder="Search note..."
-              onInput={(e) => {
-                setSearch(e.target.value);
-              }}
-            />
+            <input type="text" placeholder="Search note..." />
             <IoSearch />
           </form>
           <select name="" id="">
@@ -144,27 +132,36 @@ function App() {
           </button>
         </div>
         <ol>
-          {data.map((item) => {
-            return (
-              <div className="row" key={item.id}>
-                <div className="box">
-                  <input
-                    checked={item.isDone}
-                    onChange={() => toggleCheck(item.id)}
-                    type="checkbox"
-                  />
-                  <li className={item.isDone ? "done" : ""}>{item.title}</li>
-                </div>
-                <div className="btns">
-                  <GoPencil className="edit" />
-                  <RiDeleteBinLine
-                    className="del"
-                    onClick={() => del(item.id)}
-                  />
-                </div>
-              </div>
-            );
-          })}
+          {data.length > 0
+            ? data.map((item) => {
+                return (
+                  <div className="row" key={item.id}>
+                    <div className="box">
+                      <input
+                        checked={item.isDone}
+                        onChange={() => toggleCheck(item.id)}
+                        type="checkbox"
+                      />
+                      <li className={item.isDone ? "done" : ""}>
+                        {item.title}
+                      </li>
+                    </div>
+                    <div className="btns">
+                      <GoPencil className="edit" />
+                      <RiDeleteBinLine
+                        className="del"
+                        onClick={() => del(item.id)}
+                      />
+                    </div>
+                  </div>
+                );
+              })
+            : 
+            <div className="empty">
+                <img src="imgs/img.png" alt="" />
+                <h4>Empty</h4>
+            </div>
+            }
         </ol>
         <button
           className="add"

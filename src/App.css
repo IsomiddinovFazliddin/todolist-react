@@ -236,3 +236,9 @@
   color: white;
   background-color: #6c63ff;
 }
+
+.empty h4{
+    font-weight: 500;
+    font-size: 20px;
+ color: #252525;
+}
