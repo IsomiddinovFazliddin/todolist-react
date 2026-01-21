@@ -35,6 +35,9 @@
   border: 1px solid #f7f7f7;
   color: #666666;
 }
+.App.dark .empty h4{
+    color: #F7F7F7;
+}
 
 .container h1 {
   font-weight: 500;

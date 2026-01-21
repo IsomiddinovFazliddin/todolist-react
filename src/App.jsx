@@ -9,6 +9,8 @@ import { MdOutlineWbSunny } from "react-icons/md";
 function App() {
   const [modal, setModal] = useState(false);
   const [dark, setDark] = useState(false);
+  const [modalInput, setModalInput] = useState("");
+  const [search, setSearch] = useState("");
 
   const toggleCheck = (id) => {
     setData(
@@ -31,11 +33,13 @@ function App() {
     },
   ]);
 
-  const [modalInput, setModalInput] = useState("");
-
   const del = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
+
+  const filterData = data.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase()),
+  );
 
   return (
     <div className={dark ? "App dark" : "App"}>
@@ -115,7 +119,11 @@ function App() {
               e.preventDefault();
             }}
           >
-            <input type="text" placeholder="Search note..." />
+            <input
+              type="text"
+              placeholder="Search note..."
+              onChange={(e) => setSearch(e.target.value)}
+            />
             <IoSearch />
           </form>
           <select name="" id="">
@@ -132,36 +140,34 @@ function App() {
           </button>
         </div>
         <ol>
-          {data.length > 0
-            ? data.map((item) => {
-                return (
-                  <div className="row" key={item.id}>
-                    <div className="box">
-                      <input
-                        checked={item.isDone}
-                        onChange={() => toggleCheck(item.id)}
-                        type="checkbox"
-                      />
-                      <li className={item.isDone ? "done" : ""}>
-                        {item.title}
-                      </li>
-                    </div>
-                    <div className="btns">
-                      <GoPencil className="edit" />
-                      <RiDeleteBinLine
-                        className="del"
-                        onClick={() => del(item.id)}
-                      />
-                    </div>
+          {filterData.length > 0 ? (
+            filterData.map((item) => {
+              return (
+                <div className="row" key={item.id}>
+                  <div className="box">
+                    <input
+                      checked={item.isDone}
+                      onChange={() => toggleCheck(item.id)}
+                      type="checkbox"
+                    />
+                    <li className={item.isDone ? "done" : ""}>{item.title}</li>
                   </div>
-                );
-              })
-            : 
+                  <div className="btns">
+                    <GoPencil className="edit" />
+                    <RiDeleteBinLine
+                      className="del"
+                      onClick={() => del(item.id)}
+                    />
+                  </div>
+                </div>
+              );
+            })
+          ) : (
             <div className="empty">
-                <img src="imgs/img.png" alt="" />
-                <h4>Empty</h4>
+              <img src="imgs/img.png" alt="" />
+              <h4>Empty</h4>
             </div>
-            }
+          )}
         </ol>
         <button
           className="add"
